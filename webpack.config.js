@@ -8,11 +8,15 @@ const extractPlugin = new ExtractTextPlugin({
    filename: 'styles.css'
 });
 
-module.exports = {
-  entry: './src/js/app.js',
+var ENV = process.env.NODE_ENV;
+
+const baseConfig = {
+  entry: {
+    main: './src/js/app.js'
+  },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'app.bundle.js'
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
@@ -22,13 +26,13 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['es2015']
+              presets: ['babel-preset-env']
             }
           }
         ]
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|sass|css)$/i,
         use: extractPlugin.extract({
           use: ['css-loader', 'sass-loader']
         })
@@ -42,7 +46,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|gif)$/i,
         use: [
           {
             loader: 'file-loader',
@@ -53,19 +57,19 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          }
-        ],
-        exclude: path.resolve(__dirname, 'src/index.html')
       }
+      // {
+      //   test: /\.html$/,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       options: {
+      //         name: '[name].[ext]'
+      //       }
+      //     }
+      //   ],
+      //   exclude: path.resolve(__dirname, 'src/index.html')
+      // }
     ]
   },
   plugins: [
@@ -78,6 +82,13 @@ module.exports = {
       filename: 'index.html',
       template: 'src/index.html'
     }),
+    new HtmlWebpackPlugin({
+      filename: 'services.html',
+      template: 'src/services.html',
+      chunks: []
+    }),
     new CleanWebpackPlugin(['dist'])
   ]
 };
+
+module.exports = baseConfig;
