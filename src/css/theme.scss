@@ -1,0 +1,297 @@
+/* Home spun SASS will live here */
+@charset "UTF-8";
+
+/*=========== VARIABLES + CORE =============*/
+@import "./variables.scss";
+// @import url('typography.scss');
+// @import url('global.scss');
+@import "~bootstrap/scss/bootstrap";
+
+html, body {
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-sans-serif;
+}
+
+h1, h2 {
+  font-weight: $font-weight--black;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+
+  background-color: $color--white;
+  color: $color--brazilyellow;
+  font-family: $font-family-sans-serif;
+  @include p;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+
+  /* Global styles */
+  header, header > .container, section, footer {
+    @include flexbox;
+    @include justify-content( center );
+    @include align-items( center );
+    color: $color--stormygray;
+  }
+
+  /*  HEADER : Core Styles
+  * ---------------------------------------------- */
+  header {
+    background: $color--stormygray;
+    color: $color--white;
+    padding-top:30px;
+    border-bottom: $color--black 3px solid;
+    width: 100%;
+
+    .container {
+      @include flex-wrap(wrap);
+      overflow: hidden;
+      margin: 0 auto;
+      width: 90%;
+
+      .branding, nav {
+        width: 100%;
+      }
+
+      .branding {
+        color: $color--white;
+        font-weight: $font-weight--black;
+
+        .highlight {
+
+        }
+      }
+
+      a {
+        color: $color--white;
+        text-transform: uppercase;
+        transition: color 0.25s ease-in-out;
+
+        &:hover {
+          color:#ccc;
+          font-weight: $font-weight--bold;
+          text-decoration: underline;
+        }
+      }
+
+      /*  NAV : Styles for the Nav-Bar portion
+      * ---------------------------------------------- */
+      nav {
+        margin: 10px 0;
+
+        ul {
+          @include flexbox;
+          list-style-type: none;
+          margin:0;
+          padding:0;
+
+          li {
+            @include fontSize( 14px );
+            padding: 0 20px;
+            // margin-left: -.5em;
+            border-right: 1px solid $color--white;
+
+            &:last-child {
+              border-right: none;
+            }
+
+            &.current {
+              color: $color--deeporange;
+              font-weight: $font-weight--bold;
+            }
+
+            a {
+              color: $color--white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  /* Sections */
+  section, footer {
+    margin: 0 auto;
+  }
+
+  section {
+    padding-top: 1em;
+    width: 90%;
+
+    /* Showcase */
+    &.showcase {
+      // min-height:400px;
+      // background:url('../images/showcase.jpg') no-repeat 0 -400px;
+      text-align: center;
+
+      h1 {
+        @include fontSize(36px);
+        margin-bottom: 10px;
+      }
+
+      p {
+        @include fontSize(16px);
+      }
+    }
+
+    &.linkedin {
+      display: none;
+      // @include flexbox;
+      @include justify-content( center );
+      @include align-items( center );
+      padding:15px;
+      color: $color--white;
+      background:#35424a;
+
+      .container {
+        @include flexbox;
+        @include justify-content( center );
+        @include align-items( center );
+        width: 100%;
+
+        h1 {
+          margin-right: 10px;
+        }
+
+        form {
+
+          input[type="email"] {
+            padding:4px;
+            height:25px;
+            width:250px;
+          }
+
+          .button_1 {
+            height:38px;
+            background: $color--deeporange;
+            border: 0;
+            padding-left:20px;
+            padding-right:20px;
+            color: $color--white;
+          }
+        }
+      }
+    }
+
+    /* Boxes */
+    &.boxes {
+      @include justify-content( space-between );
+      margin-top: 20px;
+
+      .container {
+        @include flexbox;
+        @include justify-content( center );
+        @include align-items( center );
+        @include flex-wrap ( wrap );
+        @include flex-direction ( row );
+        width: 100%;
+
+        .box {
+          @include flexbox;
+          @include justify-content( center );
+          @include align-items( center );
+          @include flex-wrap( wrap );
+          @include flex-direction( column );
+          text-align: center;
+          width: auto;
+          // max-width: 20%;
+          padding: 10px;
+
+          img {
+            width: 90px;
+          }
+
+          .devicons {
+
+            &.icon-html5 {
+              // background-image: url('logo_html.png');
+            }
+            &.icon-css3 {
+              // background-image: url('logo_css.png');
+            }
+            &.icon-js {
+              // background-image: url('logo_html.png');
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  /* Footer */
+  footer {
+    @include flexbox;
+    @include flex-wrap( wrap );
+    padding: 20px;
+    margin-top: 20px;
+    color: $color--white;
+    background-color: $color--stormygray;
+    text-align:center;
+    width: 100%;
+
+    ul, p {
+      width: 100%;
+      @include fontSize( 14px );
+    }
+
+    ul.footericons {
+      list-style-type: none;
+      @include flexbox;
+      @include justify-content( center );
+      @include align-items ( space-between );
+      @include flex-wrap ( wrap );
+      @include flex-direction ( row );
+      margin-left: 0;
+
+      li {}
+    }
+
+    p {
+      // color: $color--black;
+
+      /* Skyline icon */
+      span.washington-icon {
+        width: 96px;
+        height: 42px;
+        max-height: 50px;
+        // background-image: url('../images/seattle_skyline.png');
+      }
+    }
+
+    a {
+      color: $color--offwhite;
+
+      &:hover {
+        transition: color 0.25s ease-in-out;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  pre {
+    padding: 8px 16px;
+    background: $bluegrey;
+    color: $color--black;
+    font-size: 13px;
+    line-height: 1.5;
+    text-shadow: 0 1px 0 rgba(23, 31, 35, 0.5);
+    border-radius: 3px;
+  }
+
+  & > div.container {
+    // display: none;
+
+    .navbar {
+      // display: none;
+    }
+  }
+}
