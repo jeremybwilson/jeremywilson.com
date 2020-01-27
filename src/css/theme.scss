@@ -212,13 +212,13 @@ body {
           .devicons {
 
             &.icon-html5 {
-              // background-image: url('logo_html.png');
+              background-image: url('../images/logo_html.png');
             }
             &.icon-css3 {
-              // background-image: url('logo_css.png');
+              background-image: url('../images/logo_css.png');
             }
             &.icon-js {
-              // background-image: url('logo_html.png');
+              background-image: url('../images/logo_html.png');
             }
           }
         }
@@ -263,7 +263,7 @@ body {
         width: 96px;
         height: 42px;
         max-height: 50px;
-        // background-image: url('../images/seattle_skyline.png');
+        background-image: url('../images/seattle_skyline.png');
       }
     }
 
@@ -273,6 +273,71 @@ body {
       &:hover {
         transition: color 0.25s ease-in-out;
         text-decoration: underline;
+      }
+    }
+
+    footer {
+      @include flexbox;
+      @include justify-content( center );
+      @include align-items( center );
+
+      #menu-social {
+        @include flexbox;
+        @include justify-content( center );
+        @include align-items( center );
+        @include flex-direction( row );
+        list-style-type: none;
+        list-style-type: none;
+        max-width: 300px;
+
+        li {
+          position: relative;
+          padding-top: 20px;
+          display: inline-block;
+
+          a {
+            display: block;
+            height: 39px;
+            width: 32px;
+            color: #b7b7b7;
+          }
+
+          a:hover, a:focus {
+            color: #309fc4;
+            text-decoration: none;
+          }
+
+          a::before {
+            position: absolute;
+            font-family: FontAwesome;
+            content: "\f005";
+            font-size: 2rem;
+          }
+
+          .menu-facebook a::before, .fa-facebook-square a::before {
+            content: "\f082";
+          }
+
+          .menu-twitter a::before, .fa-twitter-square a::before {
+            content: "\f081";
+          }
+
+          .menu-youtube a::before {
+            content: "\f166";
+          }
+
+          .menu-instagram a::before, .fa-instagram a::before {
+            content: "\f16d";
+          }
+
+          .fa-codepen a::before {
+            content: "\f1cb";
+          }
+
+          .menu-linkedin a::before, .fa-linkedin a::before {
+            content: "\f08c";
+          }
+        }
       }
     }
   }

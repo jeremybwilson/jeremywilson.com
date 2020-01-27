@@ -8,27 +8,31 @@ run(alertService, componentService);
 import '../css/variables.scss';
 import '../css/theme.scss';
 
-// import 'images/seattle_skyline.png';
-// import 'images/logo_css.png';
-// import 'images/logo_html.png';
-// import 'images/logo_js.png';
-
 let myName = 'Jeremy';
 console.log(`Hello ${myName}!`);
 
 import { groupBy } from 'lodash-es';
 import people from './people';
 
-const appName = 'Webpack Demo App';
-setTimeout(
-  () => console.log(`Thanks for using ${appName}`
-), 500);
+// const appName = 'Webpack Demo App';
+// setTimeout(
+//   () => console.log(`Thanks for using ${appName}`
+// ), 500);
+// console.log("Hello webpack. Demo works");
 
-console.log("Hello webpack. Demo works");
+const writeYear = () => {
+  const fullYear = new Date();
+  const currentYear = fullYear.getFullYear();
+  // find element to insert current year into
+  const yearSpan = document.querySelector('.current-year');
+  // insert current year into element
+  yearSpan.innerHTML = `${currentYear}`;
+}
+console.log(`Writing in the year here`);
+writeYear();
 
-const managerGroups = groupBy(people, 'manager');
-
-console.log(groupBy(people, 'manager'));
+// const managerGroups = groupBy(people, 'manager');
+// console.log(groupBy(people, 'manager'));
 // const root = document.createElement('div');
 // root.innerHTML = `<p>Hello Webpack.</p>`;
 // root.innerHTML += `<pre>${JSON.stringify(managerGroups, null, 2)}</pre>`;
@@ -62,9 +66,9 @@ console.log(fullNames5);
 
 // function declaration
   // anonymous function
-const sayMyName = (name) => {
-  console.log(`Hello ${name}`);
-}
+// const sayMyName = (name) => {
+//   console.log(`Hello ${name}`);
+// }
 
 // sayMyName('Jeremy');
 

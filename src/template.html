@@ -12,18 +12,33 @@
   <title>Wilson Design Technologies | Welcome</title>
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-  <link rel="stylesheet" type="text/css"
+  <!-- <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/css/foundation.css"
-    integrity="sha256-Ed7kL1p/BVuHCwGSEpUib2v9K7JtkCQlX4CweQEimJo=" crossorigin="anonymous" />
-  <!-- <link rel="stylesheet" type="text/css" href="css/theme.css"> -->
+    integrity="sha256-Ed7kL1p/BVuHCwGSEpUib2v9K7JtkCQlX4CweQEimJo=" crossorigin="anonymous" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css"
+    integrity="sha256-/sdxenK1NDowSNuphgwjv8wSosSNZB0t5koXqd7XqOI=" crossorigin="anonymous" />
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TPBGMGC');</script>
+  <!-- End Google Tag Manager -->
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPBGMGC" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!-- START non-Bootstrap markup -->
   <header>
     <div class="container">
       <div class="branding">
-        <h1><span class="highlight">Jeremy Wilson</span> / Full Stack Developer / Responsive Design Evangelist</h1>
+        <h1><span class="highlight">Jeremy Wilson</span> Responsive Design Evangelist</h1>
       </div>
       <nav>
         <ul>
@@ -36,8 +51,8 @@
   </header>
   <section class="showcase">
     <div class="container">
-      <h1>Full Stack Web Developer @ Branded Online</h1>
-      <p>Say what you mean, mean what you say.</p>
+      <h1>Full Stack Web Developer, Web Producer, Technical Project Manager</h1>
+      <!-- <p>Say what you mean, mean what you say.</p> -->
     </div>
   </section>
   <section class="linkedin">
@@ -78,12 +93,6 @@
     </div>
   </section>
 
-
-  <!-- <style>
-    .washington-icon {
-      background-image: url('./images/seattle_skyline.png');
-    }
-  </style> -->
   <footer>
     <ul class="footericons">
       <li>
@@ -103,7 +112,20 @@
         <a href="https://codepen.io/jeremyinrenton/" title="Codepen.io">jeremyinrenton</a>
       </li>
     </ul>
-    <p>Wilson Design Technologies, Copyright &copy; 2019 | Built with Webpack in <span
+    <ul id="menu-social" class="menu">
+      <li class="menu-linkedin menu-item fa-linkedin"><a target="_blank"
+          href="https://www.linkedin.com/in/jeremybwilson">LinkedIn</a></li>
+      <li class="menu-twitter menu-item fa-twitter-square"><a target="_blank"
+          href="https://twitter.com/jeremybwilson">Twitter</a></li>
+      <li class="menu-youtube menu-item menu-youtube"><a target="_blank"
+          href="https://www.youtube.com/user/jeremybwilson">YouTube</a></li>
+      <li class="menu-codepen menu-item fa-codepen"><a target="_blank"
+          href="https://www.codepen.io/jeremyinrenton/">CodePen</a></li>
+      <li class="menu-instagram menu-item fa-instagram"><a target="_blank"
+          href="https://instagram.com/jeremybwilson">Instagram</a></li>
+      <!-- <li class="menu-facebook menu-item fa-facebook-square"><a target="_blank" href="https://www.facebook.com/jeremybwilson">Facebook</a></li> -->
+    </ul>
+    <p>Wilson Design Technologies, Copyright &copy; <span class="current-year"></span> | Built with Webpack in <span
         class="washington-icon">&nbsp;</span>
     </p>
   </footer><!-- ./ END non-Bootstrap markup -->
@@ -154,6 +176,7 @@
       <div class="card-body">The result is: <span id="result"></span></div>
     </div>
     <img src="./images/webpack.svg" />
+
   </div>
 </body>
 
