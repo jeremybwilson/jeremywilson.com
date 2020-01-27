@@ -71,7 +71,7 @@ secrets.json
 .jshintrc
 .babelrc
 src/index.html
-src/parking-page.html
+src/parking-page.shtml
 src/images/showcase.jpg
 package-lock.json
 webpack.backup.config.js.v1.txt

@@ -7,10 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config webpack.dev.js --open",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js --open",
     "watch": "webpack -p"
   },
-  "author": "Jeremy Wilson",
+  "author": "Jeremy Wilson (http://www.jeremywilson.com)",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.4",
