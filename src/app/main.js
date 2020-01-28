@@ -8,17 +8,12 @@ run(alertService, componentService);
 import '../css/variables.scss';
 import '../css/theme.scss';
 
-let myName = 'Jeremy';
-console.log(`Hello ${myName}!`);
-
-import { groupBy } from 'lodash-es';
-import people from './people';
-
-// const appName = 'Webpack Demo App';
-// setTimeout(
-//   () => console.log(`Thanks for using ${appName}`
-// ), 500);
-// console.log("Hello webpack. Demo works");
+import brushLogo from '../images/logo_brush.png';
+import cssLogo from '../images/logo_css.png';
+import htmlLogo from '../images/logo_html.png';
+import jsLogo from '../images/logo_js.png';
+import seattleSkyline from '../images/seattle_skyline.png';
+import webpackLogo from '../images/webpack.svg';
 
 const writeYear = () => {
   const fullYear = new Date();
@@ -31,46 +26,7 @@ const writeYear = () => {
 console.log(`Writing in the year here`);
 writeYear();
 
-// const managerGroups = groupBy(people, 'manager');
-// console.log(groupBy(people, 'manager'));
-// const root = document.createElement('div');
-// root.innerHTML = `<p>Hello Webpack.</p>`;
-// root.innerHTML += `<pre>${JSON.stringify(managerGroups, null, 2)}</pre>`;
-// document.body.appendChild(root);
-
 // import practiceStuff from "./practice";
 
-const names = ["Alex", "Anika", "Jeremy"];
-
-const fullNames = names.map(function(name){
-  return `${name} Wilson`;  // Explicit return
-});
-
-const fullNames2 = names.map((name) => {
-  return `${name} Wilson`;  // Explicit return
-})
-
-const fullNames3 = names.map(name => {
-  return `${name} Wilson`;  // Explicit return
-});
-
-const fullNames4 = names.map(name => `${name} Wilson`);  // Implicit return
-
-const fullNames5 = names.map(() => `Cool Wilson`);
-
-console.log(fullNames5);
-
-// function sayMyName(name){
-//   console.log(`Hello ${name}`);
-// }
-
-// function declaration
-  // anonymous function
-// const sayMyName = (name) => {
-//   console.log(`Hello ${name}`);
-// }
-
-// sayMyName('Jeremy');
-
-
-
+let myName = 'Jeremy';
+console.log(`Hello ${myName}!`);

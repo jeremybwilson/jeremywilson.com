@@ -12,9 +12,9 @@
   <title>Wilson Design Technologies | Welcome</title>
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-  <!-- <link rel="stylesheet" type="text/css"
+  <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/css/foundation.css"
-    integrity="sha256-Ed7kL1p/BVuHCwGSEpUib2v9K7JtkCQlX4CweQEimJo=" crossorigin="anonymous" /> -->
+    integrity="sha256-Ed7kL1p/BVuHCwGSEpUib2v9K7JtkCQlX4CweQEimJo=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css"
     integrity="sha256-/sdxenK1NDowSNuphgwjv8wSosSNZB0t5koXqd7XqOI=" crossorigin="anonymous" />
   <!-- Google Tag Manager -->
@@ -51,7 +51,7 @@
   </header>
   <section class="showcase">
     <div class="container">
-      <h1>Full Stack Web Developer, Web Producer, Technical Project Manager</h1>
+      <h1>Full Stack Web Developer, <br />Web Producer, Technical Project Manager</h1>
       <!-- <p>Say what you mean, mean what you say.</p> -->
     </div>
   </section>
@@ -94,22 +94,22 @@
   </section>
 
   <footer>
-    <ul class="footericons">
+    <ul class="footer-icons">
       <li>
         <span class="socialmed_icons icon-github">&nbsp;</span>
-        <a href="https://github.com/jeremybwilson" title="Github">jeremybwilson</a>
+        <a href="https://github.com/jeremybwilson" title="Github">Github</a>
       </li>
       <li>
         <span class="socialmed_icons icon-linkedin">&nbsp;</span>
-        <a href="https://www.linkedin.com/in/jeremybwilson/" title="Jeremy Wilson Linkedin profile">jeremybwilson</a>
+        <a href="https://www.linkedin.com/in/jeremybwilson/" title="Jeremy Wilson Linkedin profile">Linkedin</a>
       </li>
       <li>
         <span class="socialmed_icons icon-twitter">&nbsp;</span>
-        <a href="https://twitter.com/jeremybwilson" title="Jeremy's Twitter">@jeremybwilson</a>
+        <a href="https://twitter.com/jeremybwilson" title="Jeremy's Twitter">Twitter</a>
       </li>
       <li>
         <span class="socialmed_icons icon-codepen">&nbsp;</span>
-        <a href="https://codepen.io/jeremyinrenton/" title="Codepen.io">jeremyinrenton</a>
+        <a href="https://codepen.io/jeremyinrenton/" title="Codepen.io">Codepen</a>
       </li>
     </ul>
     <ul id="menu-social" class="menu">
@@ -117,7 +117,7 @@
           href="https://www.linkedin.com/in/jeremybwilson">LinkedIn</a></li>
       <li class="menu-twitter menu-item fa-twitter-square"><a target="_blank"
           href="https://twitter.com/jeremybwilson">Twitter</a></li>
-      <li class="menu-youtube menu-item menu-youtube"><a target="_blank"
+      <li class="menu-youtube menu-item fa-youtube"><a target="_blank"
           href="https://www.youtube.com/user/jeremybwilson">YouTube</a></li>
       <li class="menu-codepen menu-item fa-codepen"><a target="_blank"
           href="https://www.codepen.io/jeremyinrenton/">CodePen</a></li>
@@ -125,12 +125,14 @@
           href="https://instagram.com/jeremybwilson">Instagram</a></li>
       <!-- <li class="menu-facebook menu-item fa-facebook-square"><a target="_blank" href="https://www.facebook.com/jeremybwilson">Facebook</a></li> -->
     </ul>
-    <p>Wilson Design Technologies, Copyright &copy; <span class="current-year"></span> | Built with Webpack in <span
-        class="washington-icon">&nbsp;</span>
-    </p>
+    <div class="footer-text">
+      <div>&copy; <span class="current-year"></span> Wilson Design Technologies, &nbsp;</div>
+      <div>Built with Webpack in</div>
+      <div class="washington-icon">&nbsp;</div>
+    </div>
   </footer><!-- ./ END non-Bootstrap markup -->
 
-  <div class="container">
+  <div class="container bootstrap-nav">
     <!-- Bootstrap Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <!-- <a class="navbar-brand" href="#">Navbar</a> -->
@@ -175,8 +177,7 @@
     <div class="card mt-5">
       <div class="card-body">The result is: <span id="result"></span></div>
     </div>
-    <img src="./images/webpack.svg" />
-
+    <img src="images/webpack.svg" />
   </div>
 </body>
 

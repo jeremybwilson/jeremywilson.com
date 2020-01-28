@@ -25,8 +25,10 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: "[name].[hash].[ext]",
-              outputPath: "images"
+              name: "./images/[name].[hash].[ext]",
+              publicPath: function(url) {
+                return url.replace('./images/', '../images/')
+              }
             }
           }
         ]
