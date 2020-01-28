@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+#header-section {
+  position: relative;
+  //margin-top: 0 !important; //The sticky nav plugin adds margin to the parent but isn't necessary, this prevents it.
+  font-family: $font-stack--heading;
+}

@@ -23,6 +23,12 @@ a {
   text-decoration: none;
 }
 
+/* SNIPPET : Header-Announcement-Bar
+ *           (Promos bar on top of nav bar)
+ * ---------------------------------------------- */
+ @import url('./header.scss');
+
+
 body {
 
   background-color: $color--white;
