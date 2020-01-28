@@ -270,6 +270,11 @@ body {
       @include flex-direction ( row );
       padding-inline-start: 0;
       list-style-type: none;
+      margin-left: 0;
+
+      @include mq('lap-and-up'){
+        @include align-items ( center );
+      }
     }
 
     div.footer-text {
