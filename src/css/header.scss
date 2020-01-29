@@ -52,7 +52,7 @@
     }
 
     &.one { opacity: 1; }
-    &.two { pointer-events: none; }
+    &.two, &.three { pointer-events: none; }
 
     div { display: inline-block; } /* So any "bold" sections sit inline with the rest of unbolded text */
 
@@ -66,7 +66,7 @@
   #promo-arrow-right {
     position: absolute;
     display: none;
-    //@include flexbox;
+    /* @include flexbox; */
     @include align-items( center );
     cursor: pointer;
     height: 100%;
@@ -75,8 +75,8 @@
     transform: translateY( -50% );
 
     svg {
-        width: 10px;
-        height: 10px;
+      width: 10px;
+      height: 10px;
     }
   }
   #promo-arrow-left {
@@ -89,16 +89,18 @@
   }
 
 
-  // ALTERNATIVE : Animation class for mobile banner swaps, if they want to hide arrows and it just auto-rotates
+  /* ALTERNATIVE : Animation class for mobile banner swaps, if they want to hide arrows and it just auto-rotates */
   &.auto-swap {
     .one { animation: 10s promoFade1 0s linear infinite; }
     .two { animation: 10s promoFade2 5s linear infinite; }
+    .three { animation: 10s promoFade3 5s linear infinite; }
   }
 
-  // Static Classes so user can manually swap the banners using arrows. (Arrow click removes auto-swap class)
+  /* Static Classes so user can manually swap the banners using arrows. (Arrow click removes auto-swap class) */
   &.show-promo-two .promo-banner {
     &.one { opacity: 0; pointer-events: none; }
     &.two { opacity: 1; pointer-events: auto;}
+    &.three { opacity: 0; pointer-events: none;}
   }
 
 }
