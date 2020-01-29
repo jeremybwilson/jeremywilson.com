@@ -23,11 +23,16 @@ a {
   text-decoration: none;
 }
 
-/* SNIPPET : Header-Announcement-Bar
- *           (Promos bar on top of nav bar)
- * ---------------------------------------------- */
- @import url('./header.scss');
+#header-section {
+  position: relative;
+  font-family: $font-stack--heading;
 
+/* SNIPPET : Header-Announcement-Bar
+  *           (Promos bar on top of nav bar)
+  * ---------------------------------------------- */
+  @import url('./header.scss');
+
+}
 
 body {
 
