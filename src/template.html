@@ -17,6 +17,8 @@
     integrity="sha256-Ed7kL1p/BVuHCwGSEpUib2v9K7JtkCQlX4CweQEimJo=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css"
     integrity="sha256-/sdxenK1NDowSNuphgwjv8wSosSNZB0t5koXqd7XqOI=" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156930026-2"></script>
   <script>
@@ -46,15 +48,31 @@
   <!-- End Google Tag Manager (noscript) -->
   <!-- START non-Bootstrap markup -->
   <header>
-    <div class="container">
-      <div class="branding">
-        <h1><span class="highlight">Jeremy Wilson</span> Responsive Design Evangelist</h1>
-      </div>
+    <div id="header-section" class="nav-container" data-section-type="header-section" data-section-id="header"
+      data-swap-rate="2.5" data-button="multi">
+      <div class="branding-container">
+        <div class="name-container">
+          <h1>Jeremy Wilson</h1>
+        </div>
+        <div id="double-promo-wrapper" class="branding">
+          <!-- <div class="highlight"></div> -->
+          <div class="promo-banner active">
+            <h1>Web Developer</h1>
+          </div>
+          <div class="promo-banner">
+            <h1>Project Manager</h1>
+          </div>
+          <div class="promo-banner">
+            <h1>Responsive Design Evangelist</h1>
+          </div>
+        </div>
+      </div><!-- end .branding-container -->
       <nav>
         <ul>
           <li class="current"><a href="index.html" title="Home">Home</a></li>
-          <li><a href="https://www.linkedin.com/in/jeremybwilson" target="_blank" title="About">Resume</a></li>
-          <li><a href="services.html" title="Services">Services</a></li>
+          <li><a href="/wp/" title="Blog">Blog</a></li>
+          <li><a href="https://www.linkedin.com/in/jeremybwilson" target="_blank" title="Resume">Resume</a></li>
+          <!-- <li><a href="services.html" title="Services">Services</a></li> -->
         </ul>
       </nav>
     </div>

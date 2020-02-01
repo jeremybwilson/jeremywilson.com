@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "webpack-dev-server --config webpack.dev.js",
-    "start": "webpack-dev-server --config webpack.dev.js",
+    "start": "webpack-dev-server --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js",
     "watch": "webpack -p"
   },
@@ -38,7 +38,8 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "lodash.debounce": "^4.0.8"
   },
   "repository": {
     "type": "git",
