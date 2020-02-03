@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-sans-serif;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-weight: $font-weight--black;
 }
 
@@ -58,21 +58,21 @@ body {
     height: 100px;
 
     @include mq( 'lap-and-up' ) {
-      height: 100px;
+      // height: 100px;
     }
 
     #header-section {
       @include flexbox;
-      @include justify-content( flex-start );
+      @include justify-content( center );
       @include align-items( center );
       @include flex-flow( column wrap );
       font-family: $font-stack--heading;
       height: 100%;
-      width: 90%;
+      width: 95%;
       margin: 0 auto;
 
       @include mq( 'lap-and-up' ) {
-        @include justify-content( center );
+        // @include justify-content( center );
         width: 80%;
       }
 
@@ -81,22 +81,22 @@ body {
         * ---------------------------------------------- */
         // @import url('./header.scss');
 
-      .branding-container, nav {
-        width: 100%;
-      }
-
       .branding-container {
         @include flexbox;
-        @include justify-content( center );
+        @include justify-content( flex-start );
+        @include align-content( center );
         @include align-items( flex-start );
         @include flex-direction( column );
-        height: auto;
-        margin-bottom: 10px;
+        margin: 0;
+        height: 66%;
+        width: 100%;
 
         @include mq('lap-and-up'){
           @include justify-content( flex-start );
           @include flex-direction( row );
           // @include flex-grow( 100 );
+          height: auto;
+          margin: 0 0 10px 0;
         }
 
         .name-container {
@@ -106,7 +106,7 @@ body {
           @include flex-direction( row );
           // border: $debugRedBorder;
           color: $color--white;
-          margin: 0;
+          margin: 10px 0 0 0;
           width: 100%;
 
           @include mq('lap-and-up'){
@@ -144,7 +144,7 @@ body {
           @include align-items( center );
           @include flex-direction( column  );
           position: relative;
-          height: 100%;
+          // height: 100%;
           width: 100%;
 
           @include mq( 'lap-and-up' ) {
@@ -210,59 +210,72 @@ body {
         }
       }
 
-      /*  NAV : Styles for the Nav-Bar portion
-      * ---------------------------------------------- */
-      nav {
+      .nav-container {
         @include flexbox;
         @include justify-content( center );
         @include align-items( center );
-        width: auto;
+        height: 33%;
+        width: 100%;
 
         @include mq( 'lap-and-up' ) {
           @include justify-content( flex-start );
+          @include align-items( center );
           width: 100%;
         }
 
-        ul {
+        /*  NAV : Styles for the Nav-Bar portion
+        * ---------------------------------------------- */
+        nav {
           @include flexbox;
-          list-style-type: none;
-          margin:0;
-          padding:0;
-          width: 100%;
+          @include justify-content( center );
+          @include align-items( center );
+          width: auto;
 
           @include mq( 'lap-and-up' ) {
-            width: auto;
+            @include justify-content( flex-start );
+            width: 100%;
           }
 
-          li {
-            @include fontSize( 14px );
-            padding: 0 20px 0 0;
-            // margin-left: -.5em;
-            border-right: 1px solid $color--white;
+          ul {
+            @include flexbox;
+            list-style-type: none;
+            margin:0;
+            padding:0;
+            width: 100%;
 
-            &:nth-child(2){
-              padding-left: 20px;
+            @include mq( 'lap-and-up' ) {
+              width: auto;
             }
 
-            &:last-child {
-              border-right: none;
-              padding-left: 20px;
-            }
-
-            &.current {
-              color: $color--deeporange;
+            li {
+              @include fontSize( 14px );
               font-weight: $font-weight--bold;
-            }
 
-            a {
-              color: $color--white;
-              text-transform: uppercase;
-              transition: color 0.25s ease-in-out;
+              &:first-child {
+                a {
+                  @include mq( 'lap-and-up' ) {
+                    margin-left: 0;
+                  }
+                }
+              }
 
-              &:hover {
-                color:#ccc;
-                font-weight: $font-weight--bold;
-                text-decoration: underline;
+              &.divider {
+                background-color: $color--white;
+                margin: 0 10px;
+                width: 1px;
+              }
+
+              a {
+                color: $color--white;
+                margin: 0 10px;
+                text-transform: uppercase;
+                transition: color 0.25s ease-in-out;
+
+                &:hover {
+                  color:#ccc;
+                  font-weight: $font-weight--bold;
+                  text-decoration: underline;
+                }
               }
             }
           }
@@ -290,8 +303,12 @@ body {
       text-align: center;
 
       h1 {
-        @include fontSize(36px);
+        @include fontSize( 24px );
         margin-bottom: 10px;
+
+        @include mq( 'lap-and-up' ){
+          @include fontSize( 32px );
+        }
       }
 
       p {
@@ -341,7 +358,6 @@ body {
     /* Boxes */
     &.boxes {
       @include justify-content( space-between );
-      margin-top: 20px;
 
       .container {
         @include flexbox;
@@ -368,6 +384,11 @@ body {
 
           h3 {
             margin-top: 5px;
+            @include fontSize( 26px );
+
+            @include mq( 'lap-and-up' ){
+              @include fontSize( 26px );
+            }
           }
 
           .devicons {
