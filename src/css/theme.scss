@@ -3,7 +3,8 @@
 
 /*=========== VARIABLES + CORE =============*/
 @import "./variables.scss";
-// @import url('typography.scss');
+// @import "./fontawesome.test.scss";
+@import url('fontawesome.custom.scss');
 // @import url('global.scss');
 @import "~bootstrap/scss/bootstrap";
 
@@ -422,32 +423,102 @@ body {
     @include align-items( center );
     @include flex-wrap( wrap );
     @include flex-direction ( column );
-
-    padding: 20px;
-    margin-top: 20px;
     color: $color--white;
     background-color: $color--stormygray;
-    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
     width: 100%;
     height: 100%;
 
-    ul, div.footer-text {
-      width: 100%;
+    ul.footer-icons, div.footer-text {
       @include fontSize( 14px );
+      margin-left: 0;
+      width: 100%;
+    }
+
+    a {
+      color: $color--offwhite;
+
+      &:hover {
+        transition: color 0.25s ease-in-out;
+        text-decoration: underline;
+      }
     }
 
     ul.footer-icons {
       @include flexbox;
-      @include justify-content( center );
-      @include align-items ( space-between );
-      @include flex-wrap ( wrap );
-      @include flex-direction ( row );
-      padding-inline-start: 0;
+      @include justify-content( space-between );
+      @include align-items( center );
+      @include flex-flow( row wrap );
       list-style-type: none;
-      margin-left: 0;
+      margin-top: 20px;
+      max-width: 400px;
 
       @include mq('lap-and-up'){
-        @include align-items ( center );
+        max-width: 400px;
+      }
+
+      li {
+
+        a {
+          height: 39px;
+          width: 32px;
+          color: #b7b7b7;
+          font: 0/0 a;
+          text-shadow: none;
+          background-color: transparent;
+          border: 0;
+
+          @include mq('lap-and-up'){
+            height: 52px;
+            width: 44px;
+          }
+
+          &:hover, &:focus {
+            color: #309fc4;
+            text-decoration: none;
+          }
+
+          &::before {
+            @include fontSize( 32px );
+
+            @include mq('lap-and-up'){
+              @include fontSize( 40px );
+            }
+          }
+        }
+
+        &.fa-github-square a::before, &.fa-twitter-square a::before, &.fa-youtube a::before, &.fa-instagram a::before, &.fa-codepen a::before, &.fa-linkedin a::before, &.fa-facebook-square a::before {
+          font-family: "Font Awesome 5 Brands";
+        }
+
+        &.fa-linkedin a::before {
+          content: "\f08c";
+        }
+
+        &.fa-github-square a::before {
+          content: "\f092";
+        }
+
+        &.fa-facebook-square a::before {
+          content: "\f082";
+        }
+
+        &.fa-twitter-square a::before {
+          content: "\f081";
+        }
+
+        &.fa-youtube a::before {
+          content:"\f167"
+        }
+
+        &.fa-instagram a::before {
+          content: "\f16d";
+        }
+
+        &.fa-codepen a::before {
+          content: "\f1cb";
+        }
       }
     }
 
@@ -457,11 +528,7 @@ body {
       @include align-items ( center );
       @include flex-direction ( column );
       @include flex-wrap ( wrap );
-
-      &>span {
-        border: 1px solid green;
-        // hide second span
-      }
+      color: $color--offwhite;
 
       /* Skyline icon */
       div {
@@ -486,104 +553,27 @@ body {
       }
     }
 
-    a {
-      color: $color--offwhite;
-
-      &:hover {
-        transition: color 0.25s ease-in-out;
-        text-decoration: underline;
-      }
-    }
-
-    ul {
-
-      &.menu {
-        color: #f9f9f9;
-        margin-bottom: 10px;
-        @include fontSize(13px);
-      }
-    }
-
     #menu-social {
       @include flexbox;
       @include justify-content( space-between );
       @include align-items( center );
-      @include flex-direction( row );
-      @include flex-wrap( wrap );
+      @include flex-flow( row wrap );
       list-style-type: none;
-      padding-inline-start: 0px;
+      margin-top: 20px;
       max-width: 400px;
 
       @include mq('lap-and-up'){
         max-width: 450px;
       }
+    }
 
-      li {
-        position: relative;
-        padding-top: 20px;
-        display: inline-block;
-
-        a {
-          display: block;
-          height: 39px;
-          width: 32px;
-          color: #b7b7b7;
-          font: 0/0 a;
-          text-shadow: none;
-          background-color: transparent;
-          border: 0;
-
-          @include mq('lap-and-up'){
-            height: 52px;
-            width: 44px;
-          }
-
-          @include mq('desk-and-up'){
-            height: 52px;
-            width: 46px;
-          }
-        }
-
-        a:hover, a:focus {
-          color: #309fc4;
-          text-decoration: none;
-        }
-
-        a::before {
-          position: absolute;
-          font-family: FontAwesome;
-          content: "\f005";
-          @include fontSize( 32px );
-
-          @include mq('lap-and-up'){
-            @include fontSize( 40px );
-          }
-        }
-
-        &.menu-facebook a::before, &.fa-facebook-square a::before {
-          content: "\f082";
-        }
-
-        &.menu-twitter a::before, &.fa-twitter-square a::before {
-          content: "\f081";
-        }
-
-        &.menu-youtube a::before, &.fa-youtube a::before {
-          content:"\f167"
-        }
-
-        &.menu-instagram a::before, &.fa-instagram a::before {
-          content: "\f16d";
-        }
-
-        &.menu-codepen a::before, &.fa-codepen a::before {
-          content: "\f1cb";
-        }
-
-        &.menu-linkedin a::before, &.fa-linkedin a::before {
-          content: "\f08c";
-        }
-      }
+    .footer-icons {
+      @include flexbox;
+      @include justify-content( space-between );
+      @include align-items( center );
+      @include flex-direction( row );
+      @include flex-wrap( wrap );
+      max-width: 450px;
     }
   }
 
