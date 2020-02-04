@@ -1,11 +1,11 @@
-import { run } from "./app.js";
-import { AlertService } from "./alert.service";
-import { ComponentService } from "./component.service";
-const alertService = new AlertService();
-const componentService = new ComponentService();
-run(alertService, componentService);
+// import { run } from "./app.js";
+// import { AlertService } from "./alert.service";
+// import { ComponentService } from "./component.service";
+// const alertService = new AlertService();
+// const componentService = new ComponentService();
+// run(alertService, componentService);
 
-import '../css/variables.scss';
+// import '../css/variables.scss';
 import '../css/theme.scss';
 
 import brushLogo from '../images/logo_brush.png';
