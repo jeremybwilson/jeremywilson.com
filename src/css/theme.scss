@@ -3,7 +3,7 @@
 
 /*=========== VARIABLES + CORE =============*/
 @import "./variables.scss";
-// @import "./fontawesome.test.scss";
+// @import "./fontawesome.custom.scss";
 @import url('fontawesome.custom.scss');
 // @import url('global.scss');
 @import "~bootstrap/scss/bootstrap";
@@ -346,7 +346,7 @@ body {
 
           .button_1 {
             height: 38px;
-            background: $color--deeporange;
+            background: $color--pomegranate;
             border: 0;
             padding-left: 20px;
             padding-right: 20px;
@@ -440,6 +440,7 @@ body {
       color: $color--offwhite;
 
       &:hover {
+        color: $color--moonstone;
         transition: color 0.25s ease-in-out;
         text-decoration: underline;
       }
@@ -475,7 +476,7 @@ body {
           }
 
           &:hover, &:focus {
-            color: #309fc4;
+            color: $color--moonstone;
             text-decoration: none;
           }
 
@@ -522,6 +523,10 @@ body {
       }
     }
 
+    div.footer-icons {
+      display: none;
+    }
+
     div.footer-text {
       @include flexbox;
       @include justify-content( center );
@@ -553,19 +558,7 @@ body {
       }
     }
 
-    #menu-social {
-      @include flexbox;
-      @include justify-content( space-between );
-      @include align-items( center );
-      @include flex-flow( row wrap );
-      list-style-type: none;
-      margin-top: 20px;
-      max-width: 400px;
-
-      @include mq('lap-and-up'){
-        max-width: 450px;
-      }
-    }
+    #menu-social {}
 
     .footer-icons {
       @include flexbox;
