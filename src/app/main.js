@@ -23,7 +23,7 @@ const writeYear = () => {
   // insert current year into element
   yearSpan.innerHTML = `${currentYear}`;
 }
-console.log(`Writing in the year here`);
+// console.log(`Writing in the year here`);
 writeYear();
 
 // import practiceStuff from "./practice";
