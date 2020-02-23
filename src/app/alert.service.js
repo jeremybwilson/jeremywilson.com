@@ -19,8 +19,10 @@ export class AlertService {
       }
     }, "Please enter two valid numbers! ");
 
-    this.errorBox.classList.remove("invisible");
-    this.errorBox.innerText = fullMessage;
+    if(this.errorBox !== null){
+      this.errorBox.classList.remove("invisible");
+      this.errorBox.innerText = fullMessage;
+    }
   }
 
   hideErrors() {
