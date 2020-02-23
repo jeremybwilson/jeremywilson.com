@@ -8,12 +8,12 @@ const people = [
     name: "Alex"
   },
   {
-    manager: "Sinara",
-    name: "Renata"
+    manager: "Jenelle",
+    name: "Nicole"
   },
   {
-    manager: "Sinara",
-    name: "Laine"
+    manager: "Anika",
+    name: "Oliver"
   }
 ];
 
