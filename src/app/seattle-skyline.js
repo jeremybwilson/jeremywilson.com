@@ -1,5 +1,4 @@
 import codeURL from "../images/seattle_skyline.png";
-import imgURL from "../images/seattle_skyline.png";
 
 const img = document.createElement("img")
 img.src = codeURL
