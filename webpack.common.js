@@ -1,5 +1,5 @@
-// const path = require('path');
 const path = require('path');
+// const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -9,11 +9,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader'
-        }
+      test: /\.js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'babel-loader'
+      }
       },
       {
         test: /\.html$/,
@@ -21,15 +21,15 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpe?g|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: "[name].[hash].[ext]",
-              outputPath: "images"
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: "./images/[name].[hash].[ext]",
+            publicPath: function(url) {
+              return url.replace('./images/', '../images/')
             }
           }
-        ]
+        }]
       }
     ]
   }

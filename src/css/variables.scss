@@ -2,16 +2,16 @@
 
 $bluegrey: #2b3a42;
 $color--black: #000;
-$color--brazilyellow: #ffdf00;
-$color--brazilgreen: #009c3b;
-$color--stormygray: #383837;
+$color--stormygray: #383837c4;
 $color--white: #fff;
 $color--offwhite: #e1e6e9;
-$color--deeporange: #e8491d;
+$color--pomegranate: #e8491d;
+$color--reverse-1: #000;
+$color--moonstone: #309fc4;
 // note: use @include fontSize(__px) to indicate all font sizes.
 
 // TYPOGRAPHY
-$font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$font-family-sans-serif: 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $font-family-monospace: Menlo, Courier, monospace, Robot, Arial, sans-serif;
 $font-stack--default: $font-family-sans-serif;
 $font-stack--heading: $font-family-sans-serif;
@@ -222,6 +222,8 @@ $font-weight--black: 800;
  *    EX : @include mq( 'lap-and-up' ) { CODE }
  * ------------------------------------------------------------------------- */
  $phone:            "screen and (max-width: 767px)";
+ $phone-portrait:   "screen and (max-width: 479px)";
+ $phone-landscape:  "screen and (min-width: 480px) and (max-width: 767px)";
  $tablet:           "screen and (min-width: 768px) and (max-width: 1023px)";
  $tablet-and-up:    "screen and (min-width: 768px)";
  $tablet-portrait:  "screen and (min-width: 768px) and (max-width: 959px)";
@@ -231,52 +233,65 @@ $font-weight--black: 800;
  $desk-and-up:      "screen and (min-width: 1220px)";
  $lap-and-desk:     "screen and (min-width: 1024px) and (max-width: 1679px)";
  $wide-and-up:      "screen and (min-width: 1680px)";
+ $ie-high-contrast: "screen and (-ms-high-contrast: active), (-ms-high-contrast: none)";
  $retina:           "(-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi)";
 
  @mixin mq($alias) {
-   @if $alias == "phone" {
-     @media #{$phone} {
-       @content;
-     }
-   } @else if $alias == "tablet" {
-     @media #{$tablet} {
-       @content;
-     }
-   } @else if $alias == "tablet-and-up" {
-     @media #{$tablet-and-up} {
-       @content;
-     }
-   } @else if $alias == "tablet-portrait" {
-     @media #{$tablet-portrait} {
-       @content;
-     }
-   } @else if $alias == "tablet-landscape" {
-     @media #{$tablet-landscape} {
-       @content;
-     }
-   } @else if $alias == "lap" {
-     @media #{$lap} {
-       @content;
-     }
-   } @else if $alias == "lap-and-up" {
-     @media #{$lap-and-up} {
-       @content;
-     }
-   } @else if $alias == "desk-and-up" {
-     @media #{$desk-and-up} {
-       @content;
-     }
-   } @else if $alias == "lap-and-desk" {
-     @media #{$lap-and-desk} {
-       @content;
-     }
-   } @else if $alias == "wide-and-up" {
-     @media #{$wide-and-up} {
-       @content;
-     }
-   } @else if $alias == "retina" {
-     @media #{$retina} {
-       @content;
-     }
-   }
- }
+  @if $alias == "phone" {
+    @media #{$phone} {
+      @content;
+    }
+  } @else if $alias == "phone-portrait" {
+    @media #{$phone-portrait} {
+      @content;
+    }
+  } @else if $alias == "phone-landscape" {
+    @media #{$phone-landscape} {
+      @content;
+    }
+  } @else if $alias == "tablet" {
+    @media #{$tablet} {
+      @content;
+    }
+  } @else if $alias == "tablet-and-up" {
+    @media #{$tablet-and-up} {
+      @content;
+    }
+  } @else if $alias == "tablet-portrait" {
+    @media #{$tablet-portrait} {
+      @content;
+    }
+  } @else if $alias == "tablet-landscape" {
+    @media #{$tablet-landscape} {
+      @content;
+    }
+  } @else if $alias == "lap" {
+    @media #{$lap} {
+      @content;
+    }
+  } @else if $alias == "lap-and-up" {
+    @media #{$lap-and-up} {
+      @content;
+    }
+  } @else if $alias == "desk-and-up" {
+    @media #{$desk-and-up} {
+      @content;
+    }
+  } @else if $alias == "lap-and-desk" {
+    @media #{$lap-and-desk} {
+      @content;
+    }
+  } @else if $alias == "wide-and-up" {
+    @media #{$wide-and-up} {
+      @content;
+    }
+  } @else if $alias == "ie-high-contrast" {
+    @media #{$ie-high-contrast} {
+      @content;
+    }
+  } @else if $alias == "retina" {
+    @media #{$retina} {
+      @content;
+    }
+  }
+}

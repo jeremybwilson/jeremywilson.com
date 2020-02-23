@@ -66,10 +66,8 @@ _site
 secrets.json
 .jekyll-metadata
 .ruby-version
-.editorconfig
-.prettierrc
-.jshintrc
-.babelrc
-index_delete.html
-images/showcase.jpg
-package-lock.json
+src/index.html
+src/parking-page.shtml
+src/images/showcase.jpg
+webpack.backup.config.js.v1.txt
+webpack.backup.config.js.v2.txt
