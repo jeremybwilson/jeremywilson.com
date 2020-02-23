@@ -27,8 +27,8 @@ const writeYear = () => {
 writeYear();
 
 // import practiceStuff from "./practice";
-
-let myName = 'Jeremy';
+alert('Hey');
+const myName = 'Jeremy';
 console.log(`Hello ${myName}!`);
 
 /*
