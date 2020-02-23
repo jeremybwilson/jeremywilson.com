@@ -43,7 +43,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jeremybwilson/jeremywilson.com.git"
+    "url": "git+https://github.com/jeremybwilson/jeremywilson.com-react.git"
   },
   "bugs": {
     "url": "https://github.com/jeremybwilson/jeremywilson.com/issues"
