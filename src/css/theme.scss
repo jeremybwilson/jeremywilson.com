@@ -3,7 +3,8 @@
 
 /*=========== VARIABLES + CORE =============*/
 @import "./variables.scss";
-// @import url('typography.scss');
+// @import "./fontawesome.custom.scss";
+@import url('fontawesome.custom.scss');
 // @import url('global.scss');
 @import "~bootstrap/scss/bootstrap";
 
@@ -15,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-sans-serif;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-weight: $font-weight--black;
 }
 
@@ -23,10 +24,14 @@ a {
   text-decoration: none;
 }
 
+/*  SITE : Core Styles
+ * ---------------------------------------------- */
+$debugRedBorder: 1px solid red;
+$debugBlueBorder: 1px solid blue;
+
 body {
 
   background-color: $color--white;
-  color: $color--brazilyellow;
   font-family: $font-family-sans-serif;
   @include p;
   margin: 0 auto;
@@ -43,79 +48,242 @@ body {
 
   /*  HEADER : Core Styles
   * ---------------------------------------------- */
+
   header {
+    display: block;
     background: $color--stormygray;
     color: $color--white;
-    padding-top:30px;
     border-bottom: $color--black 3px solid;
     width: 100%;
+    // height: auto;
+    height: 100px;
 
-    .container {
-      @include flex-wrap(wrap);
-      overflow: hidden;
+    @include mq( 'lap-and-up' ) {
+      // height: 100px;
+    }
+
+    #header-section {
+      @include flexbox;
+      @include justify-content( center );
+      @include align-items( center );
+      @include flex-flow( column wrap );
+      font-family: $font-stack--heading;
+      height: 100%;
+      width: 95%;
       margin: 0 auto;
-      width: 90%;
 
-      .branding, nav {
+      @include mq( 'lap-and-up' ) {
+        // @include justify-content( center );
+        width: 80%;
+      }
+
+      /* SNIPPET : Header-Announcement-Bar
+        *           (Promos bar on top of nav bar)
+        * ---------------------------------------------- */
+        // @import url('./header.scss');
+
+      .branding-container {
+        @include flexbox;
+        @include justify-content( flex-start );
+        @include align-content( center );
+        @include align-items( flex-start );
+        @include flex-direction( column );
+        margin: 0;
+        height: 66%;
         width: 100%;
-      }
 
-      .branding {
-        color: $color--white;
-        font-weight: $font-weight--black;
-
-        .highlight {
-
+        @include mq('lap-and-up'){
+          @include justify-content( flex-start );
+          @include flex-direction( row );
+          // @include flex-grow( 100 );
+          height: auto;
+          margin: 0 0 10px 0;
         }
-      }
 
-      a {
-        color: $color--white;
-        text-transform: uppercase;
-        transition: color 0.25s ease-in-out;
-
-        &:hover {
-          color:#ccc;
-          font-weight: $font-weight--bold;
-          text-decoration: underline;
-        }
-      }
-
-      /*  NAV : Styles for the Nav-Bar portion
-      * ---------------------------------------------- */
-      nav {
-        margin: 10px 0;
-
-        ul {
+        .name-container {
           @include flexbox;
-          list-style-type: none;
-          margin:0;
-          padding:0;
+          @include justify-content( center );
+          @include align-items( flex-start );
+          @include flex-direction( row );
+          // border: $debugRedBorder;
+          color: $color--white;
+          margin: 10px 0 0 0;
+          width: 100%;
 
-          li {
-            @include fontSize( 14px );
-            padding: 0 20px;
-            // margin-left: -.5em;
-            border-right: 1px solid $color--white;
+          @include mq('lap-and-up'){
+            margin: 0 10px 0 0;
+            width: auto;
+          }
+        }
 
-            &:last-child {
-              border-right: none;
+        .name-container > h1, #double-promo-wrapper .promo-banner > h1 {
+          @include fontSize( 24px );
+          line-height: 24px;    /* Aligns the lines cleaner */
+          margin-bottom: 0;
+          width: auto;
+
+          /* TABLET : Adjust tablet portrait font to fit prettier in space */
+          @include mq( 'tablet-and-up' ) {
+            @include fontSize( 26px );
+            line-height: 26px;
+            text-align: left;
+          }
+
+          /* DESKTOP : Adjust tablet portrait font to fit prettier in space */
+          @include mq( 'lap-and-up' ) {
+            @include fontSize( 28px );
+            line-height: 28px;  /* Aligns the lines cleaner */
+          }
+        }
+
+        /* PROMOS : TWO : Two promos displayed side by side with animation on mobile sizes */
+        #double-promo-wrapper {
+        //   border: $debugBlueBorder;
+          @include flexbox;
+          // @include flex-flow( row wrap );
+          @include justify-content( center );
+          @include align-items( center );
+          @include flex-direction( column  );
+          position: relative;
+          // height: 100%;
+          width: 100%;
+
+          @include mq( 'lap-and-up' ) {
+            @include justify-content( flex-start );
+            @include flex-grow( 100 );
+            padding: 0;
+            // position: unset;
+            width: auto;
+          }
+
+          .promo-banner {
+            @include flexbox;
+            @include justify-content( center );
+            @include align-items( center );
+            opacity: 0;
+            pointer-events: none;
+            height: auto;
+            position: absolute;
+            top: 0;
+            padding: 0;
+            // margin: 10px 0 0;
+            text-align: center;
+            width: 100%;
+
+            @include mq( 'lap-and-up' ) {
+              @include justify-content( flex-start );
+              // padding: 0 16px;
+              margin: 0;
+              top: initial;
+              // text-align: left;
+              // width: auto;
             }
 
-            &.current {
-              color: $color--deeporange;
+            @include mq( 'ie-high-contrast' ){
+              position: absolute;
+              top: 0;
+            }
+
+            &.active {
+              z-index: 50;
+              opacity: 1;
+              pointer-events: auto;
+              transition: 0.7s all ease-in;
+            }
+          }
+
+          .branding {
+            color: $color--white;
+            font-weight: $font-weight--black;
+          }
+
+          a {
+            color: $color--white;
+            text-transform: uppercase;
+            transition: color 0.25s ease-in-out;
+
+            &:hover {
+              color:#ccc;
               font-weight: $font-weight--bold;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      .nav-container {
+        @include flexbox;
+        @include justify-content( center );
+        @include align-items( center );
+        height: 33%;
+        width: 100%;
+
+        @include mq( 'lap-and-up' ) {
+          @include justify-content( flex-start );
+          @include align-items( center );
+          width: 100%;
+        }
+
+        /*  NAV : Styles for the Nav-Bar portion
+        * ---------------------------------------------- */
+        nav {
+          @include flexbox;
+          @include justify-content( center );
+          @include align-items( center );
+          width: auto;
+
+          @include mq( 'lap-and-up' ) {
+            @include justify-content( flex-start );
+            width: 100%;
+          }
+
+          ul {
+            @include flexbox;
+            list-style-type: none;
+            margin:0;
+            padding:0;
+            width: 100%;
+
+            @include mq( 'lap-and-up' ) {
+              width: auto;
             }
 
-            a {
-              color: $color--white;
+            li {
+              @include fontSize( 14px );
+              font-weight: $font-weight--bold;
+
+              &:first-child {
+                a {
+                  @include mq( 'lap-and-up' ) {
+                    margin-left: 0;
+                  }
+                }
+              }
+
+              &.divider {
+                background-color: $color--white;
+                margin: 0 10px;
+                width: 1px;
+              }
+
+              a {
+                color: $color--white;
+                margin: 0 10px;
+                text-transform: uppercase;
+                transition: color 0.25s ease-in-out;
+
+                &:hover {
+                  color:#ccc;
+                  font-weight: $font-weight--bold;
+                  text-decoration: underline;
+                }
+              }
             }
           }
         }
       }
     }
   }
-
 
   /* Sections */
   section, footer {
@@ -128,13 +296,20 @@ body {
 
     /* Showcase */
     &.showcase {
-      // min-height:400px;
-      // background:url('../images/showcase.jpg') no-repeat 0 -400px;
+      @include flexbox;
+      @include justify-content( center );
+      @include align-items( center );
+      /* min-height:400px; */
+      /* background:url('../images/showcase.jpg') no-repeat 0 -400px; */
       text-align: center;
 
       h1 {
-        @include fontSize(36px);
+        @include fontSize( 24px );
         margin-bottom: 10px;
+
+        @include mq( 'lap-and-up' ){
+          @include fontSize( 32px );
+        }
       }
 
       p {
@@ -144,12 +319,12 @@ body {
 
     &.linkedin {
       display: none;
-      // @include flexbox;
+      /* @include flexbox; */
       @include justify-content( center );
       @include align-items( center );
-      padding:15px;
+      padding: 15px;
       color: $color--white;
-      background:#35424a;
+      background: #35424a;
 
       .container {
         @include flexbox;
@@ -164,17 +339,17 @@ body {
         form {
 
           input[type="email"] {
-            padding:4px;
-            height:25px;
-            width:250px;
+            padding: 4px;
+            height: 25px;
+            width: 250px;
           }
 
           .button_1 {
-            height:38px;
-            background: $color--deeporange;
+            height: 38px;
+            background: $color--pomegranate;
             border: 0;
-            padding-left:20px;
-            padding-right:20px;
+            padding-left: 20px;
+            padding-right: 20px;
             color: $color--white;
           }
         }
@@ -184,15 +359,19 @@ body {
     /* Boxes */
     &.boxes {
       @include justify-content( space-between );
-      margin-top: 20px;
 
       .container {
         @include flexbox;
         @include justify-content( center );
         @include align-items( center );
         @include flex-wrap ( wrap );
-        @include flex-direction ( row );
+        @include flex-direction ( column );
         width: 100%;
+
+        @include mq('lap-and-up'){
+          @include flex-direction ( row );
+          max-width: 1024px;
+        }
 
         .box {
           @include flexbox;
@@ -201,24 +380,34 @@ body {
           @include flex-wrap( wrap );
           @include flex-direction( column );
           text-align: center;
-          width: auto;
-          // max-width: 20%;
+          width: 300px;
           padding: 10px;
 
-          img {
-            width: 90px;
+          h3 {
+            margin-top: 5px;
+            @include fontSize( 26px );
+
+            @include mq( 'lap-and-up' ){
+              @include fontSize( 26px );
+            }
           }
 
           .devicons {
+            display: block;
+            width: 150px;
+            height: 150px;
 
             &.icon-html5 {
-              // background-image: url('logo_html.png');
+              background: no-repeat center/100% url('../images/logo_html.png');
             }
             &.icon-css3 {
-              // background-image: url('logo_css.png');
+              background: no-repeat center/100% url('../images/logo_css.png');
             }
             &.icon-js {
-              // background-image: url('logo_html.png');
+              background: no-repeat center/100% url('../images/logo_js.png');
+            }
+            &.icon-general {
+              background: no-repeat center/100% url('../images/logo_brush.png');
             }
           }
         }
@@ -230,68 +419,172 @@ body {
   /* Footer */
   footer {
     @include flexbox;
+    @include justify-content( flex-start );
+    @include align-items( center );
     @include flex-wrap( wrap );
-    padding: 20px;
-    margin-top: 20px;
+    @include flex-direction ( column );
     color: $color--white;
     background-color: $color--stormygray;
-    text-align:center;
+    padding: 20px;
+    margin-top: 20px;
     width: 100%;
+    height: 100%;
 
-    ul, p {
-      width: 100%;
+    ul.footer-icons, div.footer-text {
       @include fontSize( 14px );
-    }
-
-    ul.footericons {
-      list-style-type: none;
-      @include flexbox;
-      @include justify-content( center );
-      @include align-items ( space-between );
-      @include flex-wrap ( wrap );
-      @include flex-direction ( row );
       margin-left: 0;
-
-      li {}
-    }
-
-    p {
-      // color: $color--black;
-
-      /* Skyline icon */
-      span.washington-icon {
-        width: 96px;
-        height: 42px;
-        max-height: 50px;
-        // background-image: url('../images/seattle_skyline.png');
-      }
+      width: 100%;
     }
 
     a {
       color: $color--offwhite;
 
       &:hover {
+        color: $color--moonstone;
         transition: color 0.25s ease-in-out;
         text-decoration: underline;
       }
     }
+
+    ul.footer-icons {
+      @include flexbox;
+      @include justify-content( space-between );
+      @include align-items( center );
+      @include flex-flow( row wrap );
+      list-style-type: none;
+      margin-top: 20px;
+      max-width: 400px;
+
+      @include mq('lap-and-up'){
+        max-width: 400px;
+      }
+
+      li {
+
+        a {
+          height: 39px;
+          width: 32px;
+          color: #b7b7b7;
+          font: 0/0 a;
+          text-shadow: none;
+          background-color: transparent;
+          border: 0;
+
+          @include mq('lap-and-up'){
+            height: 52px;
+            width: 44px;
+          }
+
+          &:hover, &:focus {
+            color: $color--moonstone;
+            text-decoration: none;
+          }
+
+          &::before {
+            @include fontSize( 32px );
+
+            @include mq('lap-and-up'){
+              @include fontSize( 40px );
+            }
+          }
+        }
+
+        &.fa-github-square a::before, &.fa-twitter-square a::before, &.fa-youtube a::before, &.fa-instagram a::before, &.fa-codepen a::before, &.fa-linkedin a::before, &.fa-facebook-square a::before {
+          font-family: "Font Awesome 5 Brands";
+        }
+
+        &.fa-linkedin a::before {
+          content: "\f08c";
+        }
+
+        &.fa-github-square a::before {
+          content: "\f092";
+        }
+
+        &.fa-facebook-square a::before {
+          content: "\f082";
+        }
+
+        &.fa-twitter-square a::before {
+          content: "\f081";
+        }
+
+        &.fa-youtube a::before {
+          content:"\f167"
+        }
+
+        &.fa-instagram a::before {
+          content: "\f16d";
+        }
+
+        &.fa-codepen a::before {
+          content: "\f1cb";
+        }
+      }
+    }
+
+    div.footer-icons {
+      display: none;
+    }
+
+    div.footer-text {
+      @include flexbox;
+      @include justify-content( center );
+      @include align-items ( center );
+      @include flex-direction ( column );
+      @include flex-wrap ( wrap );
+      color: $color--offwhite;
+
+      /* Skyline icon */
+      div {
+
+        &.washington-icon {
+          display: block;
+          width: 60px;
+          height: 25px;
+          max-height: 30px;
+          margin: 0 10px;
+          background: no-repeat center/100% url("../images/seattle_skyline.png");
+
+          &:hover {
+            transition: color 0.5s ease-in-out;
+            opacity: 50%;
+          }
+        }
+      }
+
+      @include mq('lap-and-up'){
+        @include flex-direction( row );
+      }
+    }
+
+    #menu-social {}
+
+    .footer-icons {
+      @include flexbox;
+      @include justify-content( space-between );
+      @include align-items( center );
+      @include flex-direction( row );
+      @include flex-wrap( wrap );
+      max-width: 450px;
+    }
+  }
+
+  .bootstrap-nav {
+    display: none;
   }
 
   pre {
     padding: 8px 16px;
     background: $bluegrey;
     color: $color--black;
-    font-size: 13px;
+    @include fontSize( 13px );
     line-height: 1.5;
     text-shadow: 0 1px 0 rgba(23, 31, 35, 0.5);
     border-radius: 3px;
   }
 
   & > div.container {
-    // display: none;
-
-    .navbar {
-      // display: none;
-    }
+    color: $color--black;
   }
 }

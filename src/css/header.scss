@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/* PROMOS : TWO : Two promos displayed side by side with animation on mobile sizes */
+#double-promo-wrapper {
+  @include inline-flex;
+  @include flex-flow( row wrap );
+  @include justify-content( space-evenly );  /* Horizontally */
+  @include align-items( center );  /* Vertically */
+  width: 100%;
+  height: 100%;
+  @include fontSize( 20px );
+  line-height: 20px;  /* Aligns the lines cleaner */
+
+  /* TABLET : Adjust tablet portrait font to fit prettier in space */
+  @include mq( 'tablet-and-up' ) {
+    @include fontSize( 24px );
+    line-height: 24px;
+  }
+
+  /* DESKTOP : Adjust tablet portrait font to fit prettier in space */
+  @include mq( 'lap-and-up' ) {
+    @include fontSize( 32px );
+    line-height: 32px; /* Aligns the lines cleaner */
+  }
+
+  span {
+    &.highlight {
+
+    }
+
+    &.promo-banner {
+      opacity: 0;
+      @include flexbox;
+      @include align-items( center );
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: $color--white;
+      transition: 0.5s all ease-in-out;
+      padding: 0 16px;
+      text-align: center;
+
+      @include mq( 'lap-and-up' ) {
+        padding: 0;
+        background: $color--reverse-1;
+      }
+
+      @include mq( 'ie-high-contrast' ){
+        position: absolute;
+        top: 0;
+      }
+
+      &.one { opacity: 1; }
+      &.two { pointer-events: none; }
+
+      div { display: inline-block; } /* So any "bold" sections sit inline with the rest of unbolded text */
+
+      .details-link {
+        font-weight: $font-weight--book;
+        text-decoration: underline;
+      }
+    }
+  }
+
+}
