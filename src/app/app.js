@@ -1,18 +1,15 @@
-import { inputsAreValid } from "./utils/inputs-are-valid";
-import { parseInputs } from "./utils/parse-inputs";
-export const run = (alertService, componentService) => {
-  alertService.hideErrors();
+/***
+ * QUICKSTART :
+ *    Replace "<ExampleApp />" with your first parent component
+ *    and you're ready to start creating!
+ ***/
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import Router from "./components/Router";
 
-  componentService.onClick(() => {
-    alertService.hideErrors();
-    const inputs = componentService.getInputs();
-    const parsedInputs = parseInputs(...inputs);
-    if (inputsAreValid(...parsedInputs)) {
-      const [numA, numB] = parsedInputs;
-      componentService.setResult(numA + numB);
-    } else {
-      componentService.setResult("");
-      alertService.handleAdditionError(inputs, parsedInputs);
-    }
-  });
-};
+import "../css/theme.scss";   //Bundled Styles - TELLS WEBPACK TO BUILD STYLES - DO NOT REMOVE
+// require( "../css/theme.scss" ); //Bundled Styles - TELLS WEBPACK TO BUILD STYLES - DO NOT REMOVE
+
+import './main.js';
+
+render(<Router/>, document.querySelector('#react-root'));

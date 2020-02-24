@@ -3,17 +3,31 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    main: "./src/app/main.js",
+    main: "./src/app/app.js",
     vendor: "./src/app/vendor.js"
   },
   module: {
     rules: [
       {
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      use: {
-        loader: 'babel-loader'
-      }
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/react'
+            ],
+            "plugins": [
+              [
+                "@babel/plugin-proposal-class-properties",
+                {
+                  "loose": true
+                }
+              ]
+            ]
+          }
+        }
       },
       {
         test: /\.html$/,

@@ -428,7 +428,7 @@ body {
     padding: 20px;
     margin-top: 20px;
     width: 100%;
-    height: 100%;
+    height: auto;
 
     ul.footer-icons, div.footer-text {
       @include fontSize( 14px );
@@ -460,15 +460,22 @@ body {
       }
 
       li {
+        @include fontSize( 32px );
+        color: #b7b7b7;
 
-        a {
+        @include mq('lap-and-up'){
+          @include fontSize( 40px );
+        }
+
+        &:hover, &:focus {
+          color: $color--moonstone;
+          text-decoration: none;
+          transition: color 0.2s ease-in-out;
+        }
+
+        &:before{
           height: 39px;
           width: 32px;
-          color: #b7b7b7;
-          font: 0/0 a;
-          text-shadow: none;
-          background-color: transparent;
-          border: 0;
 
           @include mq('lap-and-up'){
             height: 52px;
@@ -479,47 +486,68 @@ body {
             color: $color--moonstone;
             text-decoration: none;
           }
+        }
+
+        a {
+          color: #b7b7b7;
+          font: 0/0 a;
+          text-shadow: none;
+          background-color: transparent;
+          border: 0;
+          height: 39px;
+          width: 32px;
+
+          @include mq('lap-and-up'){
+            // height: 52px;
+            // width: 44px;
+          }
+
+          &:hover, &:focus {
+            // color: $color--moonstone;
+            // text-decoration: none;
+          }
 
           &::before {
-            @include fontSize( 32px );
+            // @include fontSize( 32px );
 
             @include mq('lap-and-up'){
-              @include fontSize( 40px );
+              // @include fontSize( 40px );
             }
           }
         }
 
-        &.fa-github-square a::before, &.fa-twitter-square a::before, &.fa-youtube a::before, &.fa-instagram a::before, &.fa-codepen a::before, &.fa-linkedin a::before, &.fa-facebook-square a::before {
-          font-family: "Font Awesome 5 Brands";
-        }
+        /* these style references are unnecessary as long as the fontawesome.min.css cdn file is embedded */
+        // &.fa-github-square a::before, &.fa-twitter-square a::before, &.fa-youtube a::before, &.fa-instagram a::before, &.fa-codepen a::before, &.fa-linkedin a::before, &.fa-facebook-square a::before {
+        //   font-family: "Font Awesome 5 Brands";
+        // }
 
-        &.fa-linkedin a::before {
-          content: "\f08c";
-        }
+        // &.fa-linkedin a::before {
+        //   content: "\f08c";
+        // }
 
-        &.fa-github-square a::before {
-          content: "\f092";
-        }
+        // &.fa-github-square a::before {
+        //   content: "\f092";
+        // }
 
-        &.fa-facebook-square a::before {
-          content: "\f082";
-        }
+        // &.fa-facebook-square a::before {
+        //   content: "\f082";
+        // }
 
-        &.fa-twitter-square a::before {
-          content: "\f081";
-        }
+        // &.fa-twitter-square a::before {
+        //   content: "\f081";
+        // }
 
-        &.fa-youtube a::before {
-          content:"\f167"
-        }
+        // &.fa-youtube a::before {
+        //   content:"\f167"
+        // }
 
-        &.fa-instagram a::before {
-          content: "\f16d";
-        }
+        // &.fa-instagram a::before {
+        //   content: "\f16d";
+        // }
 
-        &.fa-codepen a::before {
-          content: "\f1cb";
-        }
+        // &.fa-codepen a::before {
+        //   content: "\f1cb";
+        // }
       }
     }
 
