@@ -66,3 +66,6 @@ _site
 secrets.json
 .jekyll-metadata
 .ruby-version
+parking-page.shtml
+webpack.backup.config.js.v1.txt
+webpack.backup.config.js.v2.txt
